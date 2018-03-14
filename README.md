@@ -12,4 +12,6 @@ A project to show jexcel backend with php using web socket
 
 #demo
 
+http://18.216.2.71/ratchet/column.php
 
+For any questions, ask on github
