@@ -9,7 +9,16 @@
 </head>
 <body>
 
+
 	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+			Excel using PHP websocket demo (with collaborative edits)<br>
+				<a href="https://github.com/vishwakarma09/jexcel-php-socket">Source</a>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 
@@ -58,7 +67,7 @@
 				var x = $(d).data('x');
 				var y = $(d).data('y');
 
-				var request = {'controller':'sheet','action':'get', 'data':{'x':x,'y':y}};
+				var request = {'controller':'Sheet','action':'get', 'data':{'x':x,'y':y}};
 				conn.send(JSON.stringify(request));
 			});
 		};
@@ -66,9 +75,9 @@
 		conn.onmessage = function(e) {
 			
 			var data = $.parseJSON(e.data);
-			console.log(data);
+			// console.log(data);
 
-			if (data.controller == 'sheet' && data.action == 'get') {
+			if (data.controller == 'Sheet' && data.action == 'get') {
 				$('[data-x='+data.data.x+'][data-y='+data.data.y+']').val(data.data.text);
 			}else if (data.controller == 'sheet' && data.action == 'edit') {
 				$('[data-x='+data.data.x+'][data-y='+data.data.y+']').val(data.data.text);
@@ -83,7 +92,7 @@
 			var y = $(this).data('y');
 			var text = $(this).val();
 
-			var request = {'controller':'sheet','action':'edit', 'data':{'x':x,'y':y,'text':text}};
+			var request = {'controller':'Sheet','action':'edit', 'data':{'x':x,'y':y,'text':text}};
 			conn.send(JSON.stringify(request));
 		});
 
