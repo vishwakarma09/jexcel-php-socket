@@ -12,58 +12,30 @@ class Chat implements MessageComponentInterface {
     public function __construct() {
         $this->clients = new \SplObjectStorage;
         $this->router = new Router;
-
-        if (ENVIRONMENT == "development") {
-
-            $db_data = array(
-                'dsn'   => '',
-                'hostname' => 'localhost',
-                'username' => 'root',
-                'password' => '',
-                'database' => 'ratchet',
-                'dbdriver' => 'mysqli',
-                'dbprefix' => '',
-                'pconnect' => FALSE,
-                'db_debug' => TRUE,
-                'cache_on' => FALSE,
-                'cachedir' => '',
-                'char_set' => 'utf8',
-                'dbcollat' => 'utf8_general_ci',
-                'swap_pre' => '',
-                'encrypt' => FALSE,
-                'compress' => FALSE,
-                'stricton' => FALSE,
-                'failover' => array(),
-                'save_queries' => TRUE
-                );
-            $this->db =& CI\DB($db_data);
-            
-        }else if (ENVIRONMENT == "production") {
-
-            $db_data = array(
-                'dsn'   => '',
-                'hostname' => 'localhost',
-                'username' => 'root',
-                'password' => 'loveyougod123',
-                'database' => 'ratchet',
-                'dbdriver' => 'mysqli',
-                'dbprefix' => '',
-                'pconnect' => FALSE,
-                'db_debug' => TRUE,
-                'cache_on' => FALSE,
-                'cachedir' => '',
-                'char_set' => 'utf8',
-                'dbcollat' => 'utf8_general_ci',
-                'swap_pre' => '',
-                'encrypt' => FALSE,
-                'compress' => FALSE,
-                'stricton' => FALSE,
-                'failover' => array(),
-                'save_queries' => TRUE
-                );
-            $this->db =& CI\DB($db_data);
-            
-        }
+        
+        $db_data = array(
+            'dsn'   => '',
+            'hostname' => 'localhost',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'ratchet',
+            'dbdriver' => 'mysqli',
+            'dbprefix' => '',
+            'pconnect' => FALSE,
+            'db_debug' => TRUE,
+            'cache_on' => FALSE,
+            'cachedir' => '',
+            'char_set' => 'utf8',
+            'dbcollat' => 'utf8_general_ci',
+            'swap_pre' => '',
+            'encrypt' => FALSE,
+            'compress' => FALSE,
+            'stricton' => FALSE,
+            'failover' => array(),
+            'save_queries' => TRUE
+            );
+        $this->db =& CI\DB($db_data);
+        
         
     }
 
